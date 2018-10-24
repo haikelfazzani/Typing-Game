@@ -9,4 +9,4 @@
 <h3>Then, you will be able to run it:</h3>
 <p>npm run dev</p>
 
-<p>Link To App : <a href="https://upbeat-carson-26fb28.netlify.com">Click Here</a></p>
+<p>Link To App : <a href="https://typing-game10.netlify.com">Click Here</a></p>
