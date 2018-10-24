@@ -19,7 +19,9 @@ h2 {
     color: #ff5722; 
     font-family: 'Roboto', sans-serif;
     font-size: 55px; 
+    margin-bottom: 10px;
     text-transform: uppercase; 
+    transition: all 0.4s ease;
 }
 
 input { 

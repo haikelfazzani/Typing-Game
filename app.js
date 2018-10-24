@@ -19,34 +19,38 @@ window.onload = () =>
     
     let game = { 
         gameStart:false, 
-        sore: 0 , 
-        timer: 60 , 
+        score: 0 , 
+        timer: 5 , 
         timerStop: false , 
         letterCount : 0 
-    };      
-
-    let randWord = randomWord(htmlFields.randField , data);
-    subject.subscribe(data => randWord = data);
+    };       
+    
+    let randWord;
+    htmlFields.btnStart.onclick = () => {
+        randWord = randomWord(htmlFields.randField , data);
+        htmlFields.userInput.value = '';
+        subject.subscribe(data => randWord = data);
+        game.score = 0;
+        htmlFields.scoreField.textContent = "Score : "+game.score;
+        htmlFields.btnStart.disabled = true;
+        htmlFields.userInput.disabled = false;
+        timeLeft(game , htmlFields);
+    };
 
     // Logic
     htmlFields.userInput.onkeyup = (event) => 
     {                
         game.letterCount++;
         htmlFields.letterTyping.textContent = game.letterCount;
-        let userTypeWord = event.target.value , sore = game.sore;
+        let userTypeWord = event.target.value;
         
-        if(randWord.trim() === userTypeWord.trim()) {                                                   
+        if(randWord.trim() === userTypeWord.trim()) {  
+            game.score++;                                                 
             randomWord(htmlFields.randField , data);
-            sore++;
-            htmlFields.scoreField.textContent = 'Score : ' + sore; 
-            htmlFields.userInput.value = '';
+            htmlFields.scoreField.textContent = 'Score : '+ game.score;  
+            htmlFields.userInput.value = '';           
         }
     }        
-
-    htmlFields.btnStart.onclick = () => {
-        htmlFields.userInput.disabled = false;
-        timeLeft(game , htmlFields);
-    };
 
 
     function randomWord(htmlField , data) {
@@ -63,10 +67,11 @@ window.onload = () =>
             {
                 timerField.style.color = "white";
                 timerField.textContent = --timer + 's';
-                if(timer < 2) { timerField.style.color = "red"; }
+                if(timer < 10) { timerField.style.color = "red"; }
                 if(timer === 0) {   
-                    htmlFields.userInput.disabled = true;             
-                    timer = 60;
+                    htmlFields.userInput.disabled = true;  
+                    htmlFields.btnStart.disabled = false;           
+                    timer = 5;                    
                     timerStop = true;
                     btnStart.textContent = "RESTART";
                     btnStart.className = "btn btn-danger";
