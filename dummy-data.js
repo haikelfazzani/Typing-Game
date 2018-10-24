@@ -13,5 +13,11 @@ export let data = [
     'street' , 'hotel' , 'phone' , 'laptop' , 'kitchen' , 'cook' ,
     'cake' , 'tasty' , 'football' , 'tennis' , 'plane' , 'chair' ,
     'number' , 'letter' , 'count' , 'bank' , 'office' , 'job' , 
-    'sometimes'
-]
+    'sometimes' , 'easy' , 'lesson' , 'course', 'video' , 'audio' ,
+    'player' , 'maybe' , 'cool' , 'loop' , 'board' , 'mountain' ,
+    'slow' , 'fastest' , 'medium' , 'lovely' , 'goodbye' , 'space' ,
+    'earth' , 'journal' , 'news' , 'famous' , 'compositor' , 'restaurant' ,
+    'manager' , 'further' , 'furthermore' , 'beside' , 'addition' , 
+    'synonymes' , 'moreover' , 'include' , 'glass' , 'cup' , 'world cup' ,
+    'what'    
+];

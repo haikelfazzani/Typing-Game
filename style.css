@@ -7,7 +7,15 @@ body {
     text-transform: uppercase;
 }
 
-.navbar-brand { font-weight: bold; color: #797979; }
+.navbar-brand { 
+    font-weight: 
+    bold; color: #797979; 
+    font-family: 'Righteous', cursive; 
+}
+
+#site-name { 
+    color: tomato;  
+}
 
 .col-6 {
     margin: 0 auto;
