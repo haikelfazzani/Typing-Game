@@ -9,12 +9,15 @@
   },
   "keywords": [
     "javascript",
-    "game" ,
+    "game",
     "typing game"
   ],
   "author": "Haikel Fazzani",
   "license": "MIT",
   "dependencies": {
     "rxjs": "^6.3.3"
+  },
+  "devDependencies": {
+    "cssnano": "^4.1.7"
   }
 }
