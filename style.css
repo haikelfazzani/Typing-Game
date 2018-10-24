@@ -1,0 +1,30 @@
+body {
+    background-color: #1b1b1b;
+    color: #ffffff;
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+}
+
+
+.col-6 {
+    margin: 0 auto;
+}
+
+p { margin-top: 20px; }
+
+h2 { 
+    color: #ff5722; 
+    font-family: 'Roboto', sans-serif;
+    font-size: 55px; 
+    text-transform: uppercase; 
+}
+
+input { 
+    color: #000000;     
+    text-align: left;
+}
+
+.btn {
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+}

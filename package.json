@@ -1,0 +1,22 @@
+{
+  "name": "music-player",
+  "version": "1.0.0",
+  "description": "Music player",
+  "main": "app.js",
+  "scripts": {
+    "dev": "parcel index.html",
+    "build": "parcel build index.html"
+  },
+  "keywords": [
+    "javascript",
+    "music",
+    "player",
+    "web",
+    "api"
+  ],
+  "author": "Haikel Fazzani",
+  "license": "MIT",
+  "dependencies": {
+    "rxjs": "^6.3.3"
+  }
+}
