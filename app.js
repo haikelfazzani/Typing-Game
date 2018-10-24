@@ -20,7 +20,7 @@ window.onload = () =>
     let game = { 
         gameStart:false, 
         score: 0 , 
-        timer: 5 , 
+        timer: 60 , 
         timerStop: false , 
         letterCount : 0 
     };       
@@ -71,7 +71,7 @@ window.onload = () =>
                 if(timer === 0) {   
                     htmlFields.userInput.disabled = true;  
                     htmlFields.btnStart.disabled = false;           
-                    timer = 5;                    
+                    timer = 60;                    
                     timerStop = true;
                     btnStart.textContent = "RESTART";
                     btnStart.className = "btn btn-danger";
