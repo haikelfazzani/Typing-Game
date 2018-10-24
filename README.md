@@ -1,5 +1,6 @@
-<h2>To test the game localy : </h2>
+<h2>HowFast </h2>
 
+<h3>To test the game localy :</h3>
 
 <h3>First install Parcel and RxJs Library : </h3>
 
