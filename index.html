@@ -33,28 +33,25 @@
 
   <div class="container">
     <div class="row">
-      <div class="col-6">
+      <div class="col-6 centered">
 
         <p>Type the given word</p>
         <h2 id="rand-word"></h2>
 
-      <div class="form-group">
-        <input 
-              type="text" 
-              class="form-control" 
-              id="txt" aria-describedby="emailHelp" 
-              value=""
-              disabled>        
+        <div class="form-group">
+          <input type="text" class="form-control" id="txt" aria-describedby="emailHelp" value="" disabled>
+        </div>
+
+        <div id="sore-timer">
+          <div id="score">Score : 0</div>
+          <div id="time-left">Timer Left : <div id="timer">60s</div></div>
+          <div id="time-left">Letter Typing : <div id="letter">0</div></div>
+        </div>
+
+        <button id="btn-start" class="btn btn-success">START</button>
+
       </div>
-
-      <div id="score">Score : 0</div>
-
-      <div id="timer">Timer Left : 60s</div>
-
-      <button id="btn-start" class="btn btn-success">START</button>
-
     </div>
-  </div>
   </div>
 
 

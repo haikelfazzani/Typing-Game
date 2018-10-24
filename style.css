@@ -2,9 +2,12 @@ body {
     background-color: #1b1b1b;
     color: #ffffff;
     font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
     text-align: center;
+    text-transform: uppercase;
 }
 
+.navbar-brand { font-weight: bold; color: #797979; }
 
 .col-6 {
     margin: 0 auto;
@@ -25,6 +28,23 @@ input {
 }
 
 .btn {
-    font-family: 'Roboto', sans-serif;
-    font-weight: bold;
+    font-family: 'Roboto', sans-serif;    
+    margin-top: 20px;
 }
+
+.centered {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#sore-timer {
+    display: inline-flex;
+    font-size: 20px;
+    justify-content: space-around;
+    width: 100%;
+}
+
+#time-left { display: inline-flex; }
+#letter , #timer { margin-left: 10px; }
