@@ -1,4 +1,4 @@
-import { timeLeft , resetFileds } from './api/api';
+import { timeLeft , resetFields } from './api/api';
 import { data } from './dummy-data';
 import { Subject } from 'rxjs';
 
@@ -6,7 +6,9 @@ var subject = new Subject();
 var gameStartSubject = new Subject();
 
 window.onload = () => 
-{    
+{   
+    let levels = { slow:'slow' , medium:'medium' , fast:'fast'}; 
+
     let htmlFields = {
         randField : document.getElementById('rand-word') ,
         userInput : document.getElementById('txt') ,
@@ -15,19 +17,18 @@ window.onload = () =>
         letterTyping : document.getElementById('letter') ,
         btnStart : document.getElementById('btn-start')
     }
-
     
     let game = { 
         gameStart:false, 
         score: 0 , 
-        timer: 60 , 
+        timer: 5 , 
         timerStop: false , 
         letterCount : 0 
     };       
     
     let randWord;
     htmlFields.btnStart.onclick = () => {   
-        resetFileds(htmlFields , game);     
+        resetFields(htmlFields , game);     
         randWord = randomWord(htmlFields.randField , data);        
         subject.subscribe(data => randWord = data);        
         timeLeft(game , htmlFields);
@@ -49,7 +50,9 @@ window.onload = () =>
 
 
     function randomWord(htmlField , data) {
-        let randWord = data[Math.floor(Math.random()*data.length)];
+        let rndNumber = Math.floor(Math.random()*data.length);
+        let randWord = data[rndNumber];
+        data.splice(rndNumber , 1);
         htmlField.textContent = randWord;
         subject.next(randWord);
         return randWord;

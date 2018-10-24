@@ -21,40 +21,93 @@ body {
     margin: 0 auto;
 }
 
-p { margin-top: 20px; }
+    p { margin-top: 20px; }
 
-h2 { 
-    color: #ff5722; 
-    font-family: 'Roboto', sans-serif;
-    font-size: 55px; 
-    margin-bottom: 10px;
-    text-transform: uppercase; 
-    transition: all 0.4s ease;
+    h2 { 
+        color: #ff5722; 
+        font-family: 'Roboto', sans-serif;
+        font-size: 55px; 
+        margin-bottom: 10px;
+        text-transform: uppercase; 
+        transition: all 0.4s ease;
+    }
+
+    input { 
+        color: #000000;     
+        text-align: left;
+    }
+
+    .custom-select {
+        border: 0;
+        background: #343a40 !important;
+        color: white;
+        border-radius: 0;
+        text-align: center;
+    }
+
+    .btn {
+        border:0;
+        border-radius: 0;
+        font-family: 'Roboto', sans-serif;        
+    }
+
+    .centered {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    #sore-timer {
+        display: inline-flex;
+        font-size: 20px;
+        justify-content: space-around;
+        width: 100%;
+    }
+
+        #time-left { display: inline-flex; }
+        #letter , #timer { margin-left: 10px; }
+
+/*_______ Footer */
+footer {
+    font-size: 14px;
+    font-weight: bold;
+    position:fixed;
+    left:0px;
+    bottom:0px;
+    height:30px;
+    width:100%;
+    background:#272b2f !important;
+ }
+    footer p { margin-top: 6px; }
+    footer span {
+        color: tomato;
+    }
+
+
+/*____ Media Query */
+@media only screen and (max-width: 600px) {
+
+    h2 { 
+        font-size: 35px; 
+    }
+
+    .navbar-brand , footer , .btn , .custom-select , p { 
+        font-weight: 100; 
+        font-size: 14px; 
+    }
+
+    .centered {
+        position: relative;
+        top: 0%;
+        left: 0%;
+        transform: translate(-0%, -0%);
+    }
+
+    #sore-timer {
+        display: block;
+        font-size: 14px;
+        justify-content: space-around;
+        width: 100%;
+    }    
 }
-
-input { 
-    color: #000000;     
-    text-align: left;
-}
-
-.btn {
-    font-family: 'Roboto', sans-serif;    
-    margin-top: 20px;
-}
-
-.centered {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
-#sore-timer {
-    display: inline-flex;
-    font-size: 20px;
-    justify-content: space-around;
-    width: 100%;
-}
-
-#time-left { display: inline-flex; }
-#letter , #timer { margin-left: 10px; }

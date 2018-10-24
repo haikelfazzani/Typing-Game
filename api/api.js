@@ -8,8 +8,8 @@ let timeLeft = ( {timer , timerStop }, {userInput , timerField , btnStart}) =>
             if(timer < 10) { timerField.style.color = "red"; }
             if(timer === 0) {   
                 userInput.disabled = true;  
-                btnStart.disabled = false;           
-                timer = 60;                    
+                btnStart.disabled = false;                          
+                timer = 5;                    
                 timerStop = true;
                 btnStart.textContent = "RESTART";
                 btnStart.className = "btn btn-danger";
@@ -18,7 +18,7 @@ let timeLeft = ( {timer , timerStop }, {userInput , timerField , btnStart}) =>
     } , 1000);
 }
 
-function resetFileds(htmlFields , game) {
+function resetFields(htmlFields , game) {
     game.letterCount = 0;
     htmlFields.letterTyping.textContent = '0';
     htmlFields.userInput.value = '';
@@ -28,4 +28,4 @@ function resetFileds(htmlFields , game) {
     htmlFields.userInput.disabled = false;
 }
 
-export { timeLeft , resetFileds };
+export { timeLeft , resetFields };
