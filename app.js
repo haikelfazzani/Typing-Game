@@ -20,7 +20,7 @@ window.onload = () =>
     let game = { 
         gameStart:false, 
         score: 0 , 
-        timer: 5 , 
+        timer: 60 , 
         timerStop: false , 
         letterCount : 0 
     };       
