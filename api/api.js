@@ -9,7 +9,7 @@ let timeLeft = ( {timer , timerStop }, {userInput , timerField , btnStart}) =>
             if(timer === 0) {   
                 userInput.disabled = true;  
                 btnStart.disabled = false;                          
-                timer = 5;                    
+                timer = 60;                    
                 timerStop = true;
                 btnStart.textContent = "RESTART";
                 btnStart.className = "btn btn-danger";

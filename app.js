@@ -15,13 +15,14 @@ window.onload = () =>
         scoreField : document.getElementById('score') ,
         timerField : document.getElementById('timer') ,
         letterTyping : document.getElementById('letter') ,
+        levelSelect : document.getElementById('inputGroupSelect01') ,
         btnStart : document.getElementById('btn-start')
     }
     
     let game = { 
         gameStart:false, 
         score: 0 , 
-        timer: 5 , 
+        timer: 60 , 
         timerStop: false , 
         letterCount : 0 
     };       
