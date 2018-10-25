@@ -1,15 +1,14 @@
 import { timeLeft , resetFields } from './api/api';
-import { data } from './dummy-data';
-import { htmlFields , game } from './models/gameModel';
+import { data } from './data/dummy-data';
+import { htmlFields } from './models/gameModel';
+import { dashResult } from './models/dash-result';
 import { Subject , fromEvent } from 'rxjs';
 
 var subject = new Subject();
 var timeSubject = new Subject();
 
 window.onload = () => 
-{                
-           
-            
+{                                       
     let randWord , time = 60;
 
     // update time user selected
@@ -17,22 +16,22 @@ window.onload = () =>
 
     // Everything start from here
     htmlFields.btnStart.onclick = () => {          
-        resetFields(htmlFields , game);     
+        resetFields(htmlFields , dashResult);     
         randWord = randomWord(htmlFields.randField , data);        
         subject.subscribe(data => randWord = data);        
-        timeLeft(game , time , htmlFields);
+        timeLeft(dashResult , time , htmlFields);
     };
 
     // input field logic
     htmlFields.userInput.onkeyup = (event) => 
     {                
-        game.letterCount++;
-        htmlFields.letterTyping.textContent = game.letterCount;
+        dashResult.letterCount++;
+        htmlFields.letterTyping.textContent = dashResult.letterCount;
         let userTypeWord = event.target.value;
         
         if(randWord.trim() === userTypeWord.trim()) {                                                  
             randomWord(htmlFields.randField , data);
-            htmlFields.scoreField.textContent = 'Score : '+ ++game.score;  
+            htmlFields.scoreField.textContent = ++dashResult.score;  
             htmlFields.userInput.value = '';           
         }
     }        

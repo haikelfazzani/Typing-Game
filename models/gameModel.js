@@ -7,10 +7,3 @@ export let htmlFields = {
     levelSelect : document.getElementById('inputGroupSelect01') ,
     btnStart : document.getElementById('btn-start')
 }
-
-export let game = { 
-    gameStart:false, 
-    score: 0 ,  
-    timerStop: false , 
-    letterCount : 0 
-};

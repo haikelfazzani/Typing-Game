@@ -1,4 +1,4 @@
-let timeLeft = ( { timerStop },time , {userInput , timerField , btnStart}) => 
+let timeLeft = ( { timerStop },time , {userInput , timerField ,levelSelect , btnStart}) => 
 {        
     setInterval(() => {
         if(!timerStop) 
@@ -8,6 +8,7 @@ let timeLeft = ( { timerStop },time , {userInput , timerField , btnStart}) =>
             if(time < 10) { timerField.style.color = "red"; }
             if(time === 0) {   
                 timerStop = true;
+                levelSelect.disabled = false;
                 userInput.disabled = true;  
                 btnStart.disabled = false;                                             
                 btnStart.textContent = "RESTART";
@@ -17,12 +18,12 @@ let timeLeft = ( { timerStop },time , {userInput , timerField , btnStart}) =>
     } , 1000);
 }
 
-function resetFields(htmlFields , game) {
-    game.letterCount = 0;
+function resetFields(htmlFields , dashResult) {
+    dashResult.letterCount = 0;
     htmlFields.letterTyping.textContent = '0';
 
-    game.score = 0;
-    htmlFields.scoreField.textContent = "Score : "+game.score;
+    dashResult.score = 0;
+    htmlFields.scoreField.textContent = dashResult.score;
 
     htmlFields.btnStart.disabled = true;
 
