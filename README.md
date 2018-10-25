@@ -1,6 +1,8 @@
 <h2>HowFast </h2>
 
-<h3>To test the game localy :</h3>
+<h3>To test the app localy :</h3>
+
+<hr>
 
 <h3>First</h3>
 <p>git clone https://github.com/haikelfazzani/Typing-Game.git</p>
@@ -17,6 +19,5 @@
 <hr>
 
 <p>Link To App : <a href="https://typinggame10.netlify.com">Click Here</a></p>
-
 
 <img src="https://image.ibb.co/efMK6V/bbbb.png" alt="bbbb" border="0">
