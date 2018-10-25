@@ -1,14 +1,12 @@
 import { timeLeft , resetFields } from './api/api';
-import { data } from './dummy-data';
-import { Subject } from 'rxjs';
+import { data , paragraphs} from './dummy-data';
+import { Subject , fromEvent } from 'rxjs';
 
 var subject = new Subject();
-var gameStartSubject = new Subject();
+var timeSubject = new Subject();
 
 window.onload = () => 
-{   
-    let levels = { slow:'slow' , medium:'medium' , fast:'fast'}; 
-
+{                
     let htmlFields = {
         randField : document.getElementById('rand-word') ,
         userInput : document.getElementById('txt') ,
@@ -21,21 +19,25 @@ window.onload = () =>
     
     let game = { 
         gameStart:false, 
-        score: 0 , 
-        timer: 60 , 
+        score: 0 ,  
         timerStop: false , 
         letterCount : 0 
     };       
-    
-    let randWord;
-    htmlFields.btnStart.onclick = () => {   
+            
+    let randWord , time = 60;
+
+    // update time user selected
+    timeSubject.subscribe(data => time = data);
+
+    // Everything start from here
+    htmlFields.btnStart.onclick = () => {          
         resetFields(htmlFields , game);     
         randWord = randomWord(htmlFields.randField , data);        
         subject.subscribe(data => randWord = data);        
-        timeLeft(game , htmlFields);
+        timeLeft(game , time , htmlFields);
     };
 
-    // Logic
+    // input field logic
     htmlFields.userInput.onkeyup = (event) => 
     {                
         game.letterCount++;
@@ -49,14 +51,25 @@ window.onload = () =>
         }
     }        
 
-
-    function randomWord(htmlField , data) {
+    // random words coming from data array in file dummy data
+    function randomWord(randField , data) {
         let rndNumber = Math.floor(Math.random()*data.length);
         let randWord = data[rndNumber];
         data.splice(rndNumber , 1);
-        htmlField.textContent = randWord;
+        randField.textContent = randWord;
         subject.next(randWord);
         return randWord;
-    }    
+    }        
     
+    // listen for the change event (select element Time)
+    fromEvent(htmlFields.levelSelect , 'change')
+    .subscribe(data => {
+        let index = parseInt(htmlFields.levelSelect.value);    
+        
+        if(typeof index === 'number') {            
+            if(index === 2) time = 120;
+            else time = index;            
+            timeSubject.next(time); 
+        }
+    });
 }

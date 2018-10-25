@@ -1,15 +1,15 @@
-let timeLeft = ( {timer , timerStop }, {userInput , timerField , btnStart}) => 
+let timeLeft = ( { timerStop },time , {userInput , timerField , btnStart}) => 
 {        
     setInterval(() => {
         if(!timerStop) 
         {
             timerField.style.color = "white";
-            timerField.textContent = --timer + 's';
-            if(timer < 10) { timerField.style.color = "red"; }
-            if(timer === 0) {   
+            timerField.textContent = --time + 's';
+            if(time < 10) { timerField.style.color = "red"; }
+            if(time === 0) {   
                 userInput.disabled = true;  
                 btnStart.disabled = false;                          
-                timer = 60;                    
+                time = 60;                    
                 timerStop = true;
                 btnStart.textContent = "RESTART";
                 btnStart.className = "btn btn-danger";
