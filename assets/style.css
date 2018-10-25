@@ -29,7 +29,7 @@ body {
     margin: 0 auto;
 }
 
-    p { margin-top: 20px; }
+    p { width: 100%; margin-top: 20px; }
 
     h2 { 
         color: #ff5722; 
@@ -44,6 +44,19 @@ body {
         color: #000000;     
         text-align: left;
     }
+
+
+    #alert-times-over  {
+        display: inline-block;
+        font-size: 12px;
+        margin-top: 20px;
+        width: 100%;
+        visibility: hidden;
+    }
+
+        #alert-times-over  span {
+            color: red;
+        }
 
     .custom-select {
         border: 0;
@@ -115,7 +128,7 @@ footer {
 /*________________________ Media Query */
 @media only screen and (max-width: 600px) {
 
-    h2 { 
+    .col-6 h2 { 
         font-size: 35px; 
     }
 

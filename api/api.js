@@ -1,36 +1,43 @@
-let timeLeft = ( { timerStop },time , {userInput , timerField ,levelSelect , btnStart}) => 
+
+let timeLeft = (htmlFields , currentTimer) => 
 {        
+    var finish = false;
+
+
     setInterval(() => {
-        if(!timerStop) 
-        {
-            timerField.style.color = "white";
-            timerField.textContent = --time + 's';
-            if(time < 10) { timerField.style.color = "red"; }
-            if(time === 0) {   
-                timerStop = true;
-                levelSelect.disabled = false;
-                userInput.disabled = true;  
-                btnStart.disabled = false;                                             
-                btnStart.textContent = "RESTART";
-                btnStart.className = "btn btn-danger";
+        if(!finish) {
+            htmlFields.timerField.style.color = "white";
+            htmlFields.timerField.textContent = --currentTimer + 's';
+            if(currentTimer < 10) htmlFields.timerField.style.color = "red";
+            if(currentTimer === 0) 
+            {                                          
+                finish = true;
+                htmlFields.visibleElement(htmlFields.alertTimeFinish);
+                htmlFields.enableElement(htmlFields.timeSelect);
+                htmlFields.disableElement(htmlFields.userInput)  
+                htmlFields.enableElement(htmlFields.btnStart);                                             
+                htmlFields.btnStart.textContent = "RESTART";
+                htmlFields.btnStart.className = "btn btn-danger";
             }
         }
     } , 1000);
 }
 
-function resetFields(htmlFields , dashResult) {
-    dashResult.letterCount = 0;
+function resetFields(htmlFields , dashResult) 
+{
+    dashResult.resetLetterCounter();
     htmlFields.letterTyping.textContent = '0';
 
-    dashResult.score = 0;
+    dashResult.resetScore();
     htmlFields.scoreField.textContent = dashResult.score;
 
-    htmlFields.btnStart.disabled = true;
+    htmlFields.hiddenElement(htmlFields.alertTimeFinish);
+    htmlFields.disableElement(htmlFields.btnStart);
 
-    htmlFields.levelSelect.disabled = true;
+    htmlFields.disableElement(htmlFields.timeSelect);
 
     htmlFields.userInput.value = '';
-    htmlFields.userInput.disabled = false;
+    htmlFields.enableElement(htmlFields.userInput);
     htmlFields.userInput.focus();
 }
 

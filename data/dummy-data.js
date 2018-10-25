@@ -1,5 +1,5 @@
 
-export let data = [
+export let wordsArray = [
     'hello' , 'word' , 'keep' , 'going' , 'still' , 'doing' ,
     'more' , 'less' , 'feel' , 'love' , 'smile' , 'money' , 'save' ,
     'strong' , 'hide' , 'funny' , 'dry' , 'play' , 'game' , 'some' ,
