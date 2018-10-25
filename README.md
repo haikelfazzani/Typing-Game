@@ -13,6 +13,9 @@
 <h3>Then, you will be able to run it:</h3>
 <p>npm run dev</p>
 
+
+<hr>
+
 <p>Link To App : <a href="https://typinggame10.netlify.com">Click Here</a></p>
 
 
