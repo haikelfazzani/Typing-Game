@@ -1,5 +1,6 @@
 import { timeLeft , resetFields } from './api/api';
-import { data , paragraphs} from './dummy-data';
+import { data } from './dummy-data';
+import { htmlFields , game } from './models/gameModel';
 import { Subject , fromEvent } from 'rxjs';
 
 var subject = new Subject();
@@ -7,22 +8,7 @@ var timeSubject = new Subject();
 
 window.onload = () => 
 {                
-    let htmlFields = {
-        randField : document.getElementById('rand-word') ,
-        userInput : document.getElementById('txt') ,
-        scoreField : document.getElementById('score') ,
-        timerField : document.getElementById('timer') ,
-        letterTyping : document.getElementById('letter') ,
-        levelSelect : document.getElementById('inputGroupSelect01') ,
-        btnStart : document.getElementById('btn-start')
-    }
-    
-    let game = { 
-        gameStart:false, 
-        score: 0 ,  
-        timerStop: false , 
-        letterCount : 0 
-    };       
+           
             
     let randWord , time = 60;
 

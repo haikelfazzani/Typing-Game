@@ -7,10 +7,9 @@ let timeLeft = ( { timerStop },time , {userInput , timerField , btnStart}) =>
             timerField.textContent = --time + 's';
             if(time < 10) { timerField.style.color = "red"; }
             if(time === 0) {   
-                userInput.disabled = true;  
-                btnStart.disabled = false;                          
-                time = 60;                    
                 timerStop = true;
+                userInput.disabled = true;  
+                btnStart.disabled = false;                                             
                 btnStart.textContent = "RESTART";
                 btnStart.className = "btn btn-danger";
             }
@@ -21,11 +20,17 @@ let timeLeft = ( { timerStop },time , {userInput , timerField , btnStart}) =>
 function resetFields(htmlFields , game) {
     game.letterCount = 0;
     htmlFields.letterTyping.textContent = '0';
-    htmlFields.userInput.value = '';
+
     game.score = 0;
     htmlFields.scoreField.textContent = "Score : "+game.score;
+
     htmlFields.btnStart.disabled = true;
+
+    htmlFields.levelSelect.disabled = true;
+
+    htmlFields.userInput.value = '';
     htmlFields.userInput.disabled = false;
+    htmlFields.userInput.focus();
 }
 
 export { timeLeft , resetFields };
