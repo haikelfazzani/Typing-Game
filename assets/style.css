@@ -8,6 +8,16 @@ body {
     transition: all 0.4s ease;
 }
 
+button , a { outline: none; }
+
+.center-screen {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+  }
+
 /*____________ NavBar */
 .navbar-brand { 
     font-weight: 
@@ -25,16 +35,51 @@ body {
 
 
 /*_____________ Content */
-.col-6 {
+.col-8 , .col-6 {
     margin: 0 auto;
+    padding: 0;
 }
 
+/*____________Col -8 : Dash Result*/
+#dash-result {    
+    background-color: #343a40;
+    border-radius: 5px;    
+    display: block;
+    font-size: 16px;
+    width: 100%;
+}
+
+    #dash-result ul {             
+        display: flex;   
+        justify-content: center;         
+        list-style: none;
+        padding: 0;
+    }
+    #dash-result ul li {    
+        font-family: 'Roboto', sans-serif;
+        color: #ffffff;     
+        padding-right: 20px;
+        margin: 10px 10px;
+        border-right: 1px solid #1b1b1b;
+    }
+
+    #dash-result ul > li:last-child {         
+        border: 0;
+        padding-right: 0;
+    }
+
+    #dash-result ul li > span { 
+        color: #ff5722;
+        text-transform: lowercase;
+    }
+
+    /*________ Col - 6  Content */
     p { width: 100%; margin-top: 20px; }
 
     h2 { 
         color: #ff5722; 
         font-family: 'Roboto', sans-serif;
-        font-size: 55px; 
+        font-size: 60px; 
         margin-bottom: 10px;
         text-transform: uppercase; 
         transition: all 0.4s ease;
@@ -49,13 +94,27 @@ body {
     #alert-times-over  {
         display: inline-block;
         font-size: 12px;
-        margin-top: 20px;
+        margin-top: 10px;
         width: 100%;
-        visibility: hidden;
+        visibility: hidden;        
     }
 
         #alert-times-over  span {
-            color: red;
+            color: red;             
+            transition: all 0.4 ease;
+        }
+
+        #speed-result {            
+            color: white;
+            border-radius: 5px;
+            background-color: #28a745;
+            font-family: 'Roboto', sans-serif;
+            font-size: 16px;    
+            margin: auto;         
+            margin-bottom: 10px;                                 
+            padding: 5px 10px;
+            width: 20%;
+            transition: all 0.2 ease;
         }
 
     .custom-select {
@@ -70,41 +129,7 @@ body {
         border:0;
         border-radius: 0;
         font-family: 'Roboto', sans-serif;        
-    }
-
-    .centered {
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-    }
-
-    #dash-result {    
-        background-color: #343a40;
-        border-radius: 5px;    
-        display: block;
-        font-size: 18px;
-        width: 100%;
-    }
-
-    #dash-result ul {             
-            display: flex;   
-            justify-content: center;         
-            list-style: none;
-        }
-        #dash-result ul li { 
-            border-right: 1px solid #1b1b1b;
-            padding-right: 20px;
-            margin: 5px 10px;
-        }
-
-        #dash-result ul li:last-child { 
-            border: 0;
-        }
-
-        #dash-result ul li span { 
-            text-transform: lowercase;
-        }
+    }        
 
 /*_________________ Footer */
 
@@ -126,7 +151,7 @@ footer {
 
 
 /*________________________ Media Query */
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 992px) {
 
     .col-6 h2 { 
         font-size: 35px; 
@@ -137,21 +162,18 @@ footer {
         font-size: 14px; 
     }
 
-    .centered {
-        position: relative;
-        top: 0%;
-        left: 0%;
-        transform: translate(-0%, -0%);
-    }
-
     #dash-result { 
         background-color: inherit; 
     }
-        #dash-result ul {
-            display: grid;
-            font-size: 14px;        
+        #dash-result ul {            
+            padding: 0;
+            margin: 0;
+            font-size: 12px;        
         }    
 
-        #dash-result ul li { border: 0; }
+        #dash-result ul li { 
+            border: 0; 
+        }
 
 }
+

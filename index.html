@@ -56,8 +56,18 @@
     <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
       <ul class="navbar-nav ml-auto">
         <li class="nav-item">
-          <a class="nav-link" href="#"><i class="fas fa-question-circle"></i></a>
+          <a class="nav-link" href="#"><i class="fas fa-chart-bar"></i></a>
+        </li>        
+
+        <li class="nav-item">
+          <a class="nav-link" tabindex="0
+            ata-container="body" data-toggle="popover" data-placement="left" 
+            data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
+            <i class="fas fa-question-circle"></i>
+          </a>
         </li>
+
+
         <li class="nav-item">
           <a class="nav-link" href="#"><i class="fas fa-cog"></i></a>
         </li>
@@ -69,25 +79,30 @@
 
   <div class="container">
     <div class="row">
-      <div class="col-6 centered">
+
+      <div class="col-8">
+        <div id="dash-result">
+          <ul>
+            <li>WORDS :   <span id="words">         0  </span></li>
+            <li>Time :    <span id="timer">         0  </span></li>
+            <li>SPEED :   <span id="speed">         0  </span></li>
+            <li>Errors :   <span id="typing-errors">0  </span></li>
+            <li>Letters : <span id="letter">        0 </span></li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="col-6">        
 
         <p>Click Start to begin the test!</p>
         <h2 id="rand-word">WORD</h2>
 
         <div class="form-group">
           <input type="text" class="form-control" id="txt" aria-describedby="emailHelp" value="" autofocus disabled>
-        </div>
-
-        <div id="dash-result">
-          <ul>
-              <li>SCORE :   <span id="score">0  </span></li>
-              <li>Time :    <span id="timer">0  </span></li>
-              <li>SPEED :   <span id="speed">0  </span></li>
-              <li>Letters : <span id="letter">0 </span></li>
-          </ul>
-        </div>
+        </div>        
 
         <div id="alert-times-over">
+          <div id="speed-result">GOOD</div>
           <span>TIME IS OVER!</span> Click restart to begin another test
         </div>
 
@@ -104,8 +119,11 @@
         </div>
 
 
-      </div>
-    </div>
+      </div><!-- End col-6 -->
+
+    
+
+    </div><!-- End row -->
   </div>
 
 
@@ -116,7 +134,7 @@
 
 
   <script src="app.js"></script>
-
+  
 
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
     crossorigin="anonymous"></script>
@@ -124,6 +142,16 @@
     crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
     crossorigin="anonymous"></script>
+
+
+    <script>
+      $(function () {
+        $('[data-toggle="popover"]').popover({
+          trigger: 'focus'
+        });
+      })
+
+    </script>
 </body>
 
 </html>
