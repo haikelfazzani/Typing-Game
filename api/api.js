@@ -80,7 +80,7 @@ function checkSpeedRank(speed , speedResult)
 
     if(speed > 22 && speed < 45){
         speedResult.textContent = 'Average';
-        speedResult.style.backgroundColor = '#1e7e34';                        
+        speedResult.style.backgroundColor = '#00bcd4';                        
     }
     if(speed > 44 && speed < 65){
         speedResult.textContent = 'Fast';
