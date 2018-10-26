@@ -141,18 +141,62 @@ footer {
     background:#272b2f !important;
  }
     footer p { margin-top: 6px; }
-    footer span {
+    footer span a {
         color: tomato;
     }
 
 
 
 /*________________________ Media Query */
-@media only screen and (max-width: 992px) and (max-width: 600px) {
+@media only screen and (max-width: 600px) {
 
-    body {
-        
+    .col-6 h2 { 
+        font-size: 35px; 
     }
+
+    .navbar-brand , footer , .btn , .custom-select , p { 
+        font-weight: 100; 
+        font-size: 12px; 
+    }
+
+    #dash-result { 
+        background-color: inherit; 
+    }
+        #dash-result ul {    
+            display: block;        
+            padding: 0;
+            margin: 0;
+            font-size: 14px;        
+        }    
+
+        #dash-result ul li { 
+            padding: 0;
+            border: 0; 
+        }
+
+    div.input-group.mb-3 {
+        margin: 0;
+        padding: 0;
+        margin-bottom: 80px !important;
+        width: 100% !important;
+    }
+
+    #speed-result {            
+        width: 100%;    
+    }
+
+    footer {                
+        position:fixed;
+        left:0px;
+        bottom:0px;
+        height:30px;
+        width:100%;
+    }
+}
+
+
+@media only screen and (max-width: 992px) {
+
     .col-6 h2 { 
         font-size: 35px; 
     }
@@ -189,12 +233,11 @@ footer {
     }
 
     footer {        
-        margin-bottom: 30px;
-        position: fixed;
-        left: 0px;
-        bottom: 0px;
-        height: 30px;
-        width: 100%;
+        position:fixed;
+        left:0px;
+        bottom:0px;
+        height:30px;
+        width:100%;
     }
 }
 
