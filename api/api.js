@@ -47,8 +47,6 @@ let timeLeft = (htmlFields , currentTimer , netLetterSubject) =>
 
 function resetFields(htmlFields , dashResult) 
 {   
-    console.log(dashResult.getDashResultAsObject()); 
-
     dashResult.resetAllFields();
     htmlFields.letterTyping.textContent = '0';
 

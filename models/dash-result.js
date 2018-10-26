@@ -20,16 +20,4 @@ export class DashResult
         this.accuracy = 0;
     }
 
-    getDashResultAsObject() {
-        return {
-            words : this.words ,
-            time : this.time,
-            speed : this.speed ,    
-            typeErrors : this.typeErrors ,                
-            netLetter : this.netLetter , 
-            totalLetters : this.totalLetters ,
-            accuracy : this.accuracy ,
-        }
-    }
-
 }
