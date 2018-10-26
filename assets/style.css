@@ -95,7 +95,7 @@ button , a { outline: none; }
         display: inline-block;
         font-size: 12px;
         width: 100%;
-        visibility: hidden;        
+        display: none;        
     }
 
         #alert-times-over  span {
@@ -177,7 +177,7 @@ footer {
     div.input-group.mb-3 {
         margin: 0;
         padding: 0;
-        margin-bottom: 80px !important;
+        margin-bottom: 40px !important;
         width: 100% !important;
     }
 
@@ -193,7 +193,6 @@ footer {
         width:100%;
     }
 }
-
 
 @media only screen and (max-width: 992px) {
 
@@ -224,7 +223,7 @@ footer {
     div.input-group.mb-3 {
         margin: 0;
         padding: 0;
-        margin-bottom: 80px !important;
+        margin-bottom: 40px !important;
         width: 100% !important;
     }
 
@@ -232,7 +231,7 @@ footer {
         width: 100%;    
     }
 
-    footer {        
+    footer {                
         position:fixed;
         left:0px;
         bottom:0px;
@@ -240,4 +239,3 @@ footer {
         width:100%;
     }
 }
-

@@ -27,9 +27,10 @@ let timeLeft = (htmlFields , currentTimer , letterCounterSubject) =>
                 checkSpeedRank(c , htmlFields.speedResult);    
                 htmlFields.speedResult.style.margin = '0 auto 10px'; 
                 htmlFields.speedResult.style.padding = '5px 10px';
-                htmlFields.visibleElement(htmlFields.speedResult);           
+                htmlFields.speedResult.style.display = 'block';                           
 
                 htmlFields.alertTimeFinish.style.margin = '10px auto 0';
+                htmlFields.alertTimeFinish.style.display = 'block';
                 htmlFields.visibleElement(htmlFields.alertTimeFinish);
 
                 htmlFields.enableElement(htmlFields.timeSelect);
@@ -53,6 +54,11 @@ function resetFields(htmlFields , dashResult)
     dashResult.resetWords();
     htmlFields.wordsField.textContent = dashResult.words;
 
+    htmlFields.speedResult.style.margin = '0'; 
+    htmlFields.speedResult.style.padding = '0';
+    htmlFields.speedResult.style.display = 'none'; 
+
+    htmlFields.alertTimeFinish.style.display = 'none';
 	htmlFields.hiddenElement(htmlFields.alertTimeFinish);
 	
     htmlFields.disableElement(htmlFields.btnStart);
