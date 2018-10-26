@@ -1,16 +1,18 @@
 
-let timeLeft = (htmlFields , currentTimer , letterCounterSubject) => 
+let timeLeft = (htmlFields , currentTimer , netLetterSubject) => 
 {        
-    let c = 0 , finish = false , letterCnt = 0 , timeSelected = currentTimer;
-    letterCounterSubject.subscribe(data => {
+    let wpm = 0 , finish = false , letterCnt = 0 , timeSelected = currentTimer;
+
+    netLetterSubject.subscribe(data => {
         letterCnt = data;
-        if(timeSelected === 5) c =  calculSpeed(letterCnt , 12);        
-        else if(timeSelected === 30) c =  calculSpeed(letterCnt , 2);        
-        else if(timeSelected === 60) c =  calculSpeed(letterCnt , 1);
-        else c = calculSpeed(letterCnt , 2);
+        if(timeSelected === 5) wpm =  calculSpeed(letterCnt , 12);        
+        else if(timeSelected === 30) wpm =  calculSpeed(letterCnt , 2);        
+        else if(timeSelected === 60) wpm =  calculSpeed(letterCnt , 1);
+        else wpm = calculSpeed(letterCnt , 2);
+        htmlFields.speedField.textContent = wpm + 'WPM';
     });
-    
-    //console.log(letterCnt)
+
+    htmlFields.infoTop.textContent = "Let's go!";    
 
     setInterval(() => 
     {
@@ -22,19 +24,19 @@ let timeLeft = (htmlFields , currentTimer , letterCounterSubject) =>
             if(currentTimer === 0) 
             {                                          
                 finish = true;
-                htmlFields.speedField.textContent = c + 'WPM';
+                htmlFields.speedField.textContent = wpm + 'WPM';
 
-                checkSpeedRank(c , htmlFields.speedResult);    
-                htmlFields.speedResult.style.margin = '0 auto 10px'; 
+                checkSpeedRank(wpm , htmlFields.speedResult);    
+                htmlFields.speedResult.style.margin = '5px auto 15px'; 
                 htmlFields.speedResult.style.padding = '5px 10px';
                 htmlFields.speedResult.style.display = 'block';                           
 
-                htmlFields.alertTimeFinish.style.margin = '10px auto 0';
-                htmlFields.alertTimeFinish.style.display = 'block';
-                htmlFields.visibleElement(htmlFields.alertTimeFinish);
-
                 htmlFields.enableElement(htmlFields.timeSelect);
-                htmlFields.disableElement(htmlFields.userInput)  
+                htmlFields.disableElement(htmlFields.userInput);
+                
+                htmlFields.infoTop.style.color = "#28a745";
+                htmlFields.infoTop.textContent = "CLICK RESTART TO BEGIN THE TEST!";            
+                
                 htmlFields.enableElement(htmlFields.btnStart);                                             
                 htmlFields.btnStart.textContent = "RESTART";
                 htmlFields.btnStart.className = "btn btn-danger";
@@ -44,22 +46,23 @@ let timeLeft = (htmlFields , currentTimer , letterCounterSubject) =>
 }
 
 function resetFields(htmlFields , dashResult) 
-{
-    dashResult.resetLetterCounter();
+{   
+    console.log(dashResult.getDashResultAsObject()); 
+
+    dashResult.resetAllFields();
     htmlFields.letterTyping.textContent = '0';
 
-    dashResult.resetTypeErrors();
     htmlFields.typingErrorsField.textContent = '0';
 
-    dashResult.resetWords();
     htmlFields.wordsField.textContent = dashResult.words;
+
+    htmlFields.speedField.textContent = "0wpm";
+
+    htmlFields.accuracyField.textContent = "0%"; 
 
     htmlFields.speedResult.style.margin = '0'; 
     htmlFields.speedResult.style.padding = '0';
     htmlFields.speedResult.style.display = 'none'; 
-
-    htmlFields.alertTimeFinish.style.display = 'none';
-	htmlFields.hiddenElement(htmlFields.alertTimeFinish);
 	
     htmlFields.disableElement(htmlFields.btnStart);
 
@@ -71,10 +74,9 @@ function resetFields(htmlFields , dashResult)
 }
 
 function calculSpeed(letterCnt , timeSelected) {
-    if(timeSelected < 31) {
-        return Math.round(((letterCnt/5)*timeSelected) * 100) / 100;
-    }
-    return Math.round(((letterCnt/5)/timeSelected) * 100) / 100;
+    return timeSelected < 31 ? 
+        Math.round(((letterCnt/5)*timeSelected) * 100) / 100 :
+        Math.round(((letterCnt/5)/timeSelected) * 100) / 100;
 }
 
 function keyNotCounted(keyCode) {                
@@ -90,11 +92,11 @@ function checkSpeedRank(speed , speedResult)
 
     if(speed > 22 && speed < 45){
         speedResult.textContent = 'Average';
-        speedResult.style.backgroundColor = '#00bcd4';                        
+        speedResult.style.backgroundColor = '#1e7e34';                        
     }
     if(speed > 44 && speed < 65){
         speedResult.textContent = 'Fast';
-        speedResult.style.backgroundColor = '#1e7e34';
+        speedResult.style.backgroundColor = '#00bcd4';
     }
     if(speed > 64){
         speedResult.textContent = 'Pro';

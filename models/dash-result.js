@@ -5,12 +5,31 @@ export class DashResult
         this.time = 0;
         this.speed = 0;    
         this.typeErrors = 0;                
-        this.letterCounter = 0; 
+        this.netLetter = 0; 
+        this.totalLetters = 0;
+        this.accuracy = 0;
     }
 
-    resetWords() { this.words = 0; }
-    resetTime() { this.time = 0; }
-    resetSpeed() { this.speed = 0; }
-    resetTypeErrors() { this.typeErrors = 0; }
-    resetLetterCounter() { this.letterCounter = 0; }
+    resetAllFields() {
+        this.words = 0;      
+        this.time = 0;
+        this.speed = 0;    
+        this.typeErrors = 0;                
+        this.netLetter = 0; 
+        this.totalLetters = 0;
+        this.accuracy = 0;
+    }
+
+    getDashResultAsObject() {
+        return {
+            words : this.words ,
+            time : this.time,
+            speed : this.speed ,    
+            typeErrors : this.typeErrors ,                
+            netLetter : this.netLetter , 
+            totalLetters : this.totalLetters ,
+            accuracy : this.accuracy ,
+        }
+    }
+
 }

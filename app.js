@@ -10,27 +10,32 @@ import { map } from 'rxjs/operators';
 
 var subject = new Subject();
 var timeSubject = new Subject();
-var letterCounterSubject = new Subject();
+var netLetterSubject = new Subject();
+var accuracySubject = new Subject();
 
 window.onload = () => 
 {                                       
-    let randWord , currentTimer = 60 ,
+    let randWord , currentTimer = 60 , accuracyCounter = 0 ,
     dashResult= new DashResult() , 
     htmlFields = new HtmlFields();    
 
     // Everything start from here
     htmlFields.btnStart.onclick = () => 
-    {       
-        // listen to user input errors counter                        
-
+    {                              
         // update time user selected
-        timeSubject.subscribe(data => currentTimer = data);
+        timeSubject.subscribe(time => currentTimer = time);        
 
         resetFields(htmlFields , dashResult);     
         randWord = randomWord(htmlFields.randField , wordsArray);        
         subject.subscribe(data => randWord = data);        
 
-        timeLeft(htmlFields , currentTimer , letterCounterSubject);        
+        accuracySubject.subscribe(accuracy => { 
+            accuracyCounter = accuracy 
+            accuracyCounter = Math.round(accuracyCounter * 100) / 100;
+            htmlFields.accuracyField.textContent = accuracyCounter+"%";
+        });          
+        
+        timeLeft(htmlFields , currentTimer , netLetterSubject);
     };
 
     // input field logic
@@ -38,17 +43,20 @@ window.onload = () =>
     {                      
         let keyCode = event.keyCode ? event.keyCode : event.which ,
             userTypeWord = event.target.value;
+
         if(!keyNotCounted(keyCode)) 
         {
             // count user input letters
-            htmlFields.letterTyping.textContent = ++dashResult.letterCounter;
-            letterCounterSubject.next(dashResult.letterCounter);
+            htmlFields.letterTyping.textContent = ++dashResult.netLetter;
+            netLetterSubject.next(dashResult.netLetter);
         }else 
         {
             // count user input errors
             htmlFields.typingErrorsField.textContent = ++dashResult.typeErrors;
-        }        
+        }          
         
+        calculAccuracy(dashResult , accuracyCounter);
+
         // check user input , if is equal to the random word
         if(randWord.trim() === userTypeWord.trim()) {                                                  
             randomWord(htmlFields.randField , wordsArray);
@@ -78,5 +86,13 @@ window.onload = () =>
             timeSubject.next(currentTimer); 
         }
     });      
-    
+
+
+    // calculate Accuracy
+    function calculAccuracy(dashResult , accuracyCounter) {
+        ++dashResult.totalLetters;                
+        dashResult.accuracy = (dashResult.netLetter*100)/dashResult.totalLetters;
+        accuracyCounter = dashResult.accuracy;
+        accuracySubject.next(accuracyCounter);
+    }
 }

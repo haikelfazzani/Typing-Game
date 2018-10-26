@@ -2,6 +2,7 @@
 export class HtmlFields {
 
     constructor() {
+        this.infoTop = document.getElementById('info-top');
         this.randField = document.getElementById('rand-word');
         
         this.userInput = document.getElementById('txt');
@@ -13,12 +14,12 @@ export class HtmlFields {
         this.typingErrorsField = document.getElementById('typing-errors');
         this.letterTyping = document.getElementById('letter');
 
-
-        this.timeSelect = document.getElementById('inputGroupSelect01');
-        this.btnStart = document.getElementById('btn-start');
+        this.accuracyField = document.getElementById('accuracy'); 
 
         this.speedResult = document.getElementById('speed-result');        
-        this.alertTimeFinish = document.getElementById('alert-times-over');
+
+        this.timeSelect = document.getElementById('inputGroupSelect01');
+        this.btnStart = document.getElementById('btn-start');        
     }
 
     visibleElement(element) { element.style.visibility = "visible"; }

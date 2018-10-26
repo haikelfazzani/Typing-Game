@@ -1,7 +1,8 @@
 body {
     background-color: #1b1b1b;
     color: #ffffff;
-    font-family: 'Montserrat', sans-serif;
+    /*font-family: 'Montserrat', sans-serif;*/
+    font-family: 'Roboto', sans-serif;
     font-size: 18px;
     text-align: center;
     text-transform: uppercase;
@@ -18,27 +19,33 @@ button , a { outline: none; }
     transform: translate(-50%, -50%);
   }
 
-/*____________ NavBar */
+/*_____________________ NavBar */
 .navbar-brand { 
     font-weight: 
     bold; color: #797979; 
     font-family: 'Righteous', cursive; 
 }
 
-#site-name { 
-    color: tomato;  
+#site-name { color: tomato; }
+
+.navbar i { font-size: 22px; }
+
+.dropdown-menu-right { min-width: 15rem; }
+
+.dropdown-menu-right ul { list-style: none; margin: 0; padding: 0 5px 0 10px; }
+
+.dropdown-menu-right ul li p { 
+    font-size: 12px; 
+    font-weight: 100;
+    color: #b1b1b1;  
+    margin: 0;
+    padding: 0;  
 }
 
-.navbar i {
-    font-size: 22px;
-}
-
+.dropdown-menu-right ul li p strong { color: #ff5722; font-weight: bold; }
 
 /*_____________ Content */
-.col-8 , .col-6 {
-    margin: 0 auto;
-    padding: 0;
-}
+.col-8 , .col-6 { margin: 0 auto; padding: 0; }
 
 /*____________Col -8 : Dash Result*/
 #dash-result {    
@@ -56,63 +63,38 @@ button , a { outline: none; }
         padding: 0;
     }
     #dash-result ul li {    
-        font-family: 'Roboto', sans-serif;
         color: #ffffff;     
         padding-right: 20px;
         margin: 10px 10px;
         border-right: 1px solid #1b1b1b;
     }
 
-    #dash-result ul > li:last-child {         
-        border: 0;
-        padding-right: 0;
-    }
+    #dash-result ul > li:last-child { border: 0; padding-right: 0; }
 
-    #dash-result ul li > span { 
-        color: #ff5722;
-        text-transform: lowercase;
-    }
+    #dash-result ul li > span { color: #ff5722;  text-transform: lowercase; }
 
     /*________ Col - 6  Content */
-    p { width: 100%; margin-top: 20px; }
+    p { font-weight: bold; width: 100%; margin-top: 20px; }
 
     h2 { 
         color: #ff5722; 
-        font-family: 'Roboto', sans-serif;
         font-size: 60px; 
         margin-bottom: 10px;
         text-transform: uppercase; 
         transition: all 0.4s ease;
     }
 
-    input { 
-        color: #000000;     
-        text-align: left;
+    input { color: #000000; text-align: left; }
+
+    #speed-result {  
+        display: none;
+        margin: auto;   
+        padding: 5px;   
+        border-radius: 5px;
+        font-size: 16px;                                                       
+        width: 20%;
+        transition: all 0.2 ease;
     }
-
-
-    #alert-times-over  {
-        display: inline-block;
-        font-size: 12px;
-        width: 100%;
-        display: none;        
-    }
-
-        #alert-times-over  span {
-            color: red;             
-            transition: all 0.4 ease;
-        }
-
-        #speed-result {     
-            padding: 0;       
-            color: white;
-            border-radius: 5px;
-            background-color: #28a745;
-            font-family: 'Roboto', sans-serif;
-            font-size: 16px;                                                       
-            width: 20%;
-            transition: all 0.2 ease;
-        }
 
     .custom-select {
         border: 0;
@@ -122,17 +104,12 @@ button , a { outline: none; }
         text-align: center;
     }
 
-    .btn {
-        border:0;
-        border-radius: 0;
-        font-family: 'Roboto', sans-serif;        
-    }        
+    .btn { border:0;  border-radius: 0; }        
 
 /*_________________ Footer */
 
 footer {
     font-size: 14px;
-    font-weight: bold;
     position:fixed;
     left:0px;
     bottom:0px;
@@ -141,18 +118,14 @@ footer {
     background:#272b2f !important;
  }
     footer p { margin-top: 6px; }
-    footer span a {
-        color: tomato;
-    }
+    footer span a { color: tomato; }
 
 
 
 /*________________________ Media Query */
 @media only screen and (max-width: 600px) {
 
-    .col-6 h2 { 
-        font-size: 35px; 
-    }
+    .col-6 h2 { font-size: 35px; }
 
     .navbar-brand , footer , .btn , .custom-select , p { 
         font-weight: 100; 
@@ -169,10 +142,7 @@ footer {
             font-size: 14px;        
         }    
 
-        #dash-result ul li { 
-            padding: 0;
-            border: 0; 
-        }
+        #dash-result ul li { padding: 0; border: 0; }
 
     div.input-group.mb-3 {
         margin: 0;
@@ -181,9 +151,7 @@ footer {
         width: 100% !important;
     }
 
-    #speed-result {            
-        width: 100%;    
-    }
+    #speed-result { width: 100%; }
 
     footer {                
         position:fixed;
@@ -196,29 +164,11 @@ footer {
 
 @media only screen and (max-width: 992px) {
 
-    .col-6 h2 { 
-        font-size: 35px; 
-    }
+    #dash-result { background-color: inherit; }
 
-    .navbar-brand , footer , .btn , .custom-select , p { 
-        font-weight: 100; 
-        font-size: 12px; 
-    }
+        #dash-result ul { display: block; padding: 0; margin: 0; }    
 
-    #dash-result { 
-        background-color: inherit; 
-    }
-        #dash-result ul {    
-            display: block;        
-            padding: 0;
-            margin: 0;
-            font-size: 14px;        
-        }    
-
-        #dash-result ul li { 
-            padding: 0;
-            border: 0; 
-        }
+        #dash-result ul li {  padding: 0; border: 0; }
 
     div.input-group.mb-3 {
         margin: 0;
@@ -227,9 +177,7 @@ footer {
         width: 100% !important;
     }
 
-    #speed-result {            
-        width: 100%;    
-    }
+    #speed-result { width: 100%; }
 
     footer {                
         position:fixed;

@@ -55,17 +55,37 @@
 
     <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
       <ul class="navbar-nav ml-auto">
-        <li class="nav-item">
-          <a class="nav-link" href="#"><i class="fas fa-chart-bar"></i></a>
-        </li>        
 
         <li class="nav-item">
           <a class="nav-link" tabindex="0
-            ata-container="body" data-toggle="popover" data-placement="left" 
-            data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
-            <i class="fas fa-question-circle"></i>
+                ata-container="body" data-toggle="popover" data-placement="left" 
+                data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
+            <i class="fas fa-chart-bar"></i>
           </a>
         </li>
+
+
+        <li class="nav-item">
+          <div class="dropdown">
+            <a class="nav-link" id="dLabel" data-toggle="dropdown" aria-haspopup="true" 
+                aria-expanded="false">
+              <i class="fa fa-question-circle">
+            </a>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dLabel">
+              <ul>
+                <li><p><strong>WORDS :</strong> Number of correct words typed</p></li>
+                <li><p><strong>WPM :</strong> (Words Per Minute)</p></li>
+                <li>
+                  <p><strong>Accuracy :</strong> 
+                    is the percentage of correct entries out of the total entries typed.
+                  </p>
+                </li>
+                <li><p><strong>Letters :</strong> Number of letters typed(:backspace/enter/shift)</p></li>
+              </ul>
+              <div class="dropdown-divider"></div>
+            </div>
+          </div>
+        </li>                
 
 
         <li class="nav-item">
@@ -92,19 +112,21 @@
         </div>
       </div>
       
-      <div class="col-6">        
+      <div class="col-6">       
 
-        <p>Click Start to begin the test!</p>
+        <p id="info-top">Click Start to begin the test!</p>        
         <h2 id="rand-word">WORD</h2>
 
         <div class="form-group">
           <input type="text" class="form-control" id="txt" aria-describedby="emailHelp" value="" autofocus disabled>
         </div>        
 
-        <div id="alert-times-over">
-          <div id="speed-result">GOOD</div>
-          <span>TIME IS OVER!</span> Click restart to begin another test
-        </div>
+
+        <!-- Accuracy Result -->
+        <div>Accuracy : <span id="accuracy">        0%</span></div>
+
+        <!-- Speed Result (slow, fast ....) -->
+        <div id="speed-result">GOOD</div>        
 
         <div class="input-group mb-3" style="max-width:300px; margin: 10px auto 0;">
           <select class="custom-select" id="inputGroupSelect01">
