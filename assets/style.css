@@ -94,7 +94,6 @@ button , a { outline: none; }
     #alert-times-over  {
         display: inline-block;
         font-size: 12px;
-        margin-top: 10px;
         width: 100%;
         visibility: hidden;        
     }
@@ -104,15 +103,13 @@ button , a { outline: none; }
             transition: all 0.4 ease;
         }
 
-        #speed-result {            
+        #speed-result {     
+            padding: 0;       
             color: white;
             border-radius: 5px;
             background-color: #28a745;
             font-family: 'Roboto', sans-serif;
-            font-size: 16px;    
-            margin: auto;         
-            margin-bottom: 10px;                                 
-            padding: 5px 10px;
+            font-size: 16px;                                                       
             width: 20%;
             transition: all 0.2 ease;
         }
@@ -151,29 +148,53 @@ footer {
 
 
 /*________________________ Media Query */
-@media only screen and (max-width: 992px) {
+@media only screen and (max-width: 992px) and (max-width: 600px) {
 
+    body {
+        
+    }
     .col-6 h2 { 
         font-size: 35px; 
     }
 
     .navbar-brand , footer , .btn , .custom-select , p { 
         font-weight: 100; 
-        font-size: 14px; 
+        font-size: 12px; 
     }
 
     #dash-result { 
         background-color: inherit; 
     }
-        #dash-result ul {            
+        #dash-result ul {    
+            display: block;        
             padding: 0;
             margin: 0;
-            font-size: 12px;        
+            font-size: 14px;        
         }    
 
         #dash-result ul li { 
+            padding: 0;
             border: 0; 
         }
 
+    div.input-group.mb-3 {
+        margin: 0;
+        padding: 0;
+        margin-bottom: 80px !important;
+        width: 100% !important;
+    }
+
+    #speed-result {            
+        width: 100%;    
+    }
+
+    footer {        
+        margin-bottom: 30px;
+        position: fixed;
+        left: 0px;
+        bottom: 0px;
+        height: 30px;
+        width: 100%;
+    }
 }
 

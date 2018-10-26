@@ -24,10 +24,14 @@ let timeLeft = (htmlFields , currentTimer , letterCounterSubject) =>
                 finish = true;
                 htmlFields.speedField.textContent = c + 'WPM';
 
-                checkSpeedRank(c , htmlFields.speedResult);     
+                checkSpeedRank(c , htmlFields.speedResult);    
+                htmlFields.speedResult.style.margin = '0 auto 10px'; 
+                htmlFields.speedResult.style.padding = '5px 10px';
                 htmlFields.visibleElement(htmlFields.speedResult);           
 
+                htmlFields.alertTimeFinish.style.margin = '10px auto 0';
                 htmlFields.visibleElement(htmlFields.alertTimeFinish);
+
                 htmlFields.enableElement(htmlFields.timeSelect);
                 htmlFields.disableElement(htmlFields.userInput)  
                 htmlFields.enableElement(htmlFields.btnStart);                                             
