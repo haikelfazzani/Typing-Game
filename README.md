@@ -9,10 +9,12 @@
 
 <h3>Second install : </h3>
 
-<p>Parcel : <strong>npm install -g parcel-bundler</strong></p>
-<p>RxJs Library : <strong>npm install rxjs</strong></p>
-<p>PouchDB (BrowserStorage) : <strong>npm install --save pouchdb-browser</strong></p>
-<p>ChartJs : <strong>npm install chart.js --save</strong></p>
+<ul>
+  <li><p>Parcel : <strong>npm install -g parcel-bundler</strong></p></li>
+  <li><p>RxJs Library : <strong>npm install rxjs</strong></p></li>
+  <li><p>PouchDB (BrowserStorage) : <strong>npm install --save pouchdb-browser</strong></p></li>
+  <li><p>ChartJs : <strong>npm install chart.js --save</strong></p></li>
+</ul>
 
 <h3>Then, you will be able to run it:</h3>
 <p>npm run dev</p>
