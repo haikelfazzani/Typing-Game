@@ -5,7 +5,11 @@
 <hr>
 
 <h3>First</h3>
-<p>git clone https://github.com/haikelfazzani/Typing-Game.git</p>
+<ul>
+  <li>
+    <p>git clone https://github.com/haikelfazzani/Typing-Game.git</p>
+  </li>
+</ul>
 
 <h3>Second install : </h3>
 
@@ -17,7 +21,11 @@
 </ul>
 
 <h3>Then, you will be able to run it:</h3>
-<p>npm run dev</p>
+<ul>
+  <li>
+    <p>npm run dev</p>
+  </li>
+</ul>
 
 
 <hr>
