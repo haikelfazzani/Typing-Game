@@ -95,4 +95,5 @@ window.onload = () =>
         accuracyCounter = dashResult.accuracy;
         accuracySubject.next(accuracyCounter);
     }
+    
 }

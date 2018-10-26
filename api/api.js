@@ -1,7 +1,9 @@
+import { StaticFields } from "../models/stat-fields";
 
 let timeLeft = (htmlFields , currentTimer , netLetterSubject) => 
 {        
-    let wpm = 0 , finish = false , letterCnt = 0 , timeSelected = currentTimer;
+    let wpm = 0 , finish = false , letterCnt = 0 , timeSelected = currentTimer ,
+    staticFields = new StaticFields();
 
     netLetterSubject.subscribe(data => {
         letterCnt = data;
@@ -14,6 +16,8 @@ let timeLeft = (htmlFields , currentTimer , netLetterSubject) =>
 
     htmlFields.infoTop.textContent = "Let's go!";    
 
+    staticFields.statTime.textContent = timeSelected + 's';
+
     setInterval(() => 
     {
         if(!finish) 
@@ -22,7 +26,7 @@ let timeLeft = (htmlFields , currentTimer , netLetterSubject) =>
             htmlFields.timerField.textContent = --currentTimer + 's';
             if(currentTimer < 10) htmlFields.timerField.style.color = "red";
             if(currentTimer === 0) 
-            {                                          
+            {                     
                 finish = true;
                 htmlFields.speedField.textContent = wpm + 'WPM';
 
@@ -40,6 +44,15 @@ let timeLeft = (htmlFields , currentTimer , netLetterSubject) =>
                 htmlFields.enableElement(htmlFields.btnStart);                                             
                 htmlFields.btnStart.textContent = "RESTART";
                 htmlFields.btnStart.className = "btn btn-danger";
+                
+                staticFields.setNewContent(
+                    htmlFields.wordsField.textContent ,
+                    wpm ,
+                    htmlFields.typingErrorsField.textContent ,
+                    htmlFields.letterTyping.textContent ,
+                    htmlFields.accuracyField.textContent 
+                );
+                
             }
         }
     } , 1000);

@@ -57,11 +57,26 @@
       <ul class="navbar-nav ml-auto">
 
         <li class="nav-item">
-          <a class="nav-link" tabindex="0
-                ata-container="body" data-toggle="popover" data-placement="left" 
-                data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
-            <i class="fas fa-chart-bar"></i>
-          </a>
+          <div class="dropdown">
+            <a class="nav-link" id="dLabel" data-toggle="dropdown" aria-haspopup="true" 
+                aria-expanded="false">
+              <i class="fa fa-chart-bar">
+            </a>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dLabel">
+              <ul><li><p>Last Statistics</p></li></ul>
+              <div class="dropdown-divider"></div>
+              <ul>
+                <li><p><strong>WORDS :</strong>     <span id="stat-words">    0</span>   </p></li>
+                <li><p><strong>TIME :</strong>      <span id="stat-time">     0</span>   </p></li>                
+                <li><p><strong>SPEED :</strong>     <span id="stat-speed">    0wpm</span>   </p></li>
+                <li><p><strong>ERROS :</strong>     <span id="stat-errros">    0</span>   </p></li>            
+                <li><p><strong>LETTERS :</strong>   <span id="stat-letters">  0</span>   </p></li>
+                <li><p><strong>ACCURACY :</strong>  <span id="stat-accuracy"> 0</span>  </p></li>            
+              </ul>
+              <div class="dropdown-divider"></div>
+              <ul><li></li></ul>
+            </div>
+          </div>
         </li>
 
 
@@ -83,6 +98,7 @@
                 <li><p><strong>Letters :</strong> Number of letters typed(:backspace/enter/shift)</p></li>
               </ul>
               <div class="dropdown-divider"></div>
+              <ul><li><p>Free Online : typing speed test</p></li></ul>
             </div>
           </div>
         </li>                
