@@ -31,5 +31,6 @@
 <hr>
 
 <p>Link To App : <a href="https://typinggame10.netlify.com">Click Here</a></p>
-
+<h3>Screenshots</h3>
+<hr>
 <img src="https://image.ibb.co/gpDswV/bbbb.png" alt="bbbb" border="0">
