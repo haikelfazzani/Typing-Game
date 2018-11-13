@@ -1,4 +1,7 @@
 import { StaticFields } from "../models/stat-fields";
+import { SpeedDB } from '../db/SpeedDB';
+
+let speedDb = new SpeedDB();
 
 let timeLeft = (htmlFields , currentTimer , netLetterSubject) => 
 {        
@@ -7,9 +10,9 @@ let timeLeft = (htmlFields , currentTimer , netLetterSubject) =>
 
     netLetterSubject.subscribe(data => {
         letterCnt = data;
-        if(timeSelected === 5) wpm =  calculSpeed(letterCnt , 12);        
-        else if(timeSelected === 30) wpm =  calculSpeed(letterCnt , 2);        
-        else if(timeSelected === 60) wpm =  calculSpeed(letterCnt , 1);
+        if(timeSelected === 5)          wpm =  calculSpeed(letterCnt , 12);        
+        else if(timeSelected === 30)    wpm =  calculSpeed(letterCnt , 2);        
+        else if(timeSelected === 60)    wpm =  calculSpeed(letterCnt , 1);
         else wpm = calculSpeed(letterCnt , 2);
         htmlFields.speedField.textContent = wpm + 'WPM';
     });
@@ -53,6 +56,8 @@ let timeLeft = (htmlFields , currentTimer , netLetterSubject) =>
                     htmlFields.accuracyField.textContent 
                 );
                 
+                speedDb.insertData(wpm);
+                console.log(speedDb.getAllData())
             }
         }
     } , 1000);
@@ -61,15 +66,9 @@ let timeLeft = (htmlFields , currentTimer , netLetterSubject) =>
 function resetFields(htmlFields , dashResult) 
 {   
     dashResult.resetAllFields();
-    htmlFields.letterTyping.textContent = '0';
+    htmlFields.resetAllFields();   
 
-    htmlFields.typingErrorsField.textContent = '0';
-
-    htmlFields.wordsField.textContent = dashResult.words;
-
-    htmlFields.speedField.textContent = "0wpm";
-
-    htmlFields.accuracyField.textContent = "0%"; 
+    htmlFields.wordsField.textContent = dashResult.words;     
 
     htmlFields.speedResult.style.margin = '0'; 
     htmlFields.speedResult.style.padding = '0';
@@ -78,8 +77,7 @@ function resetFields(htmlFields , dashResult)
     htmlFields.disableElement(htmlFields.btnStart);
 
     htmlFields.disableElement(htmlFields.timeSelect);
-
-    htmlFields.userInput.value = '';
+    
     htmlFields.enableElement(htmlFields.userInput);
     htmlFields.userInput.focus();
 }

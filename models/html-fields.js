@@ -2,28 +2,39 @@
 export class HtmlFields {
 
     constructor() {
-        this.infoTop = document.getElementById('info-top');
-        this.randField = document.getElementById('rand-word');
+        this.infoTop            = document.getElementById('info-top');
+        this.randField          = document.getElementById('rand-word');
         
-        this.userInput = document.getElementById('txt');
+        this.userInput          = document.getElementById('txt');
 
         // Dash Result Fields
-        this.wordsField = document.getElementById('words');
-        this.timerField = document.getElementById('timer');        
-        this.speedField = document.getElementById('speed');
-        this.typingErrorsField = document.getElementById('typing-errors');
-        this.letterTyping = document.getElementById('letter');
+        this.wordsField         = document.getElementById('words');
+        this.timerField         = document.getElementById('timer');        
+        this.speedField         = document.getElementById('speed');
+        this.typingErrorsField  = document.getElementById('typing-errors');
+        this.letterTyping       = document.getElementById('letter');
 
-        this.accuracyField = document.getElementById('accuracy'); 
+        this.accuracyField      = document.getElementById('accuracy'); 
 
-        this.speedResult = document.getElementById('speed-result');        
+        this.speedResult        = document.getElementById('speed-result');        
 
-        this.timeSelect = document.getElementById('inputGroupSelect01');
-        this.btnStart = document.getElementById('btn-start');        
+        this.timeSelect         = document.getElementById('inputGroupSelect01');
+        this.btnStart           = document.getElementById('btn-start');        
     }
 
-    visibleElement(element) { element.style.visibility = "visible"; }
-    hiddenElement(element) { element.style.visibility = "hidden"; }
-    enableElement(element) { element.disabled = false; }    
-    disableElement(element) { element.disabled = true; }
+    resetAllFields() 
+    {
+        this.letterTyping.textContent = '0';
+
+        this.typingErrorsField.textContent = '0';
+        this.speedField.textContent = "0wpm";
+
+        this.accuracyField.textContent = "0%";
+        this.userInput.value = '';
+    }
+
+    visibleElement(element) {   element.style.visibility  = "visible"; }
+    hiddenElement(element) {    element.style.visibility   = "hidden"; }
+    enableElement(element) {    element.disabled       = false; }    
+    disableElement(element) {   element.disabled      = true; }
 }
