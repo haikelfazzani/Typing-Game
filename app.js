@@ -91,19 +91,28 @@ window.onload = () => {
         accuracySubject.next(accuracyCounter);
     }
 
-    var ctx = document.getElementById("myChart").getContext('2d');
-    var myChart = new Chart(ctx, {
-        type: 'line',
-        data: {
-            labels: [ "20", "30" , "40" , "50", "60", "100" , "120" ],
-            datasets: [{
-                label: '# of WPM (SPEED)',
-                data: JSON.parse(localStorage.getItem("speed")),
-                backgroundColor: '#28a745',
-                borderColor: '#ff5722',
-            }]
-        },
+    // chart
+    let speeds = JSON.parse(localStorage.getItem("speed")) ,
+        charElement = document.getElementById("myChart") ,
+        ctx = charElement.getContext('2d');
 
-    });
+    if (speeds !== null) {
+        charElement.style.display = 'block';
+        var myChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ["20", "30", "40", "50", "60", "100", "120"],
+                datasets: [{
+                    label: '# of WPM (SPEED)',
+                    data: speeds,
+                    backgroundColor: '#28a745',
+                    borderColor: '#ff5722',
+                }]
+            },
+
+        });
+    }else {
+        charElement.style.display = 'none';
+    }
 
 }

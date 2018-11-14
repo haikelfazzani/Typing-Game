@@ -34421,21 +34421,30 @@ window.onload = function () {
     dashResult.accuracy = dashResult.netLetter * 100 / dashResult.totalLetters;
     accuracyCounter = dashResult.accuracy;
     accuracySubject.next(accuracyCounter);
-  }
+  } // chart
 
-  var ctx = document.getElementById("myChart").getContext('2d');
-  var myChart = new _chart.default(ctx, {
-    type: 'line',
-    data: {
-      labels: ["20", "30", "40", "50", "60", "100", "120"],
-      datasets: [{
-        label: '# of WPM (SPEED)',
-        data: JSON.parse(localStorage.getItem("speed")),
-        backgroundColor: '#28a745',
-        borderColor: '#ff5722'
-      }]
-    }
-  });
+
+  var speeds = JSON.parse(localStorage.getItem("speed")),
+      charElement = document.getElementById("myChart"),
+      ctx = charElement.getContext('2d');
+
+  if (speeds !== null) {
+    charElement.style.display = 'block';
+    var myChart = new _chart.default(ctx, {
+      type: 'line',
+      data: {
+        labels: ["20", "30", "40", "50", "60", "100", "120"],
+        datasets: [{
+          label: '# of WPM (SPEED)',
+          data: speeds,
+          backgroundColor: '#28a745',
+          borderColor: '#ff5722'
+        }]
+      }
+    });
+  } else {
+    charElement.style.display = 'none';
+  }
 };
 },{"./api/api":"api/api.js","./data/dummy-data":"data/dummy-data.js","./models/html-fields":"models/html-fields.js","./models/dash-result":"models/dash-result.js","rxjs":"node_modules/rxjs/_esm5/index.js","rxjs/operators":"node_modules/rxjs/_esm5/operators/index.js","chart.js":"node_modules/chart.js/src/chart.js"}],"../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
@@ -34464,7 +34473,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "60456" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62683" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);

@@ -45,7 +45,7 @@ button , a { outline: none; }
 .dropdown-menu-right ul li p strong { color: #ff5722; font-weight: bold; }
 
 /*_____________ Content */
-.col-8 , .col-6 { margin: 0 auto; padding: 0; }
+.col-md-8 , .col-md-6 { margin: 0 auto; padding: 0; }
 
 /*____________Col -8 : Dash Result*/
 #dash-result {    
@@ -74,7 +74,7 @@ button , a { outline: none; }
     #dash-result ul li > span { color: #ff5722;  text-transform: lowercase; }
 
     /*________ Col - 6  Content */
-    p { font-weight: bold; width: 100%; margin-top: 20px; }
+    p { font-weight: bold; }
 
     h2 { 
         color: #ff5722; 
@@ -119,17 +119,7 @@ button , a { outline: none; }
     }
 /*_________________ Footer */
 
-footer {
-    font-size: 14px;
-    position:fixed;
-    left:0px;
-    bottom:0px;
-    height:30px;
-    width:100%;
-    background:#272b2f !important;
- }
-    footer p { margin-top: 6px; }
-    footer span a { color: tomato; }
+
 
 
 
@@ -137,11 +127,6 @@ footer {
 @media only screen and (max-width: 600px) {
 
     .col-6 h2 { font-size: 35px; }
-
-    .navbar-brand , footer , .btn , .custom-select , p { 
-        font-weight: 100; 
-        font-size: 12px; 
-    }
 
     #dash-result { 
         background-color: inherit; 
@@ -164,25 +149,10 @@ footer {
 
     #speed-result { width: 100%; }
 
-    footer {                
-        position:fixed;
-        left:0px;
-        bottom:0px;
-        height:30px;
-        width:100%;
-    }
 }
 
 @media only screen and (max-width: 992px) {
 
-
     #speed-result { width: 100%; }
 
-    footer {                
-        position:fixed;
-        left:0px;
-        bottom:0px;
-        height:30px;
-        width:100%;
-    }
 }
