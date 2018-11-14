@@ -189,6 +189,8 @@ function () {
     } else {
       this.speeds = [];
     }
+
+    this.isInserted = false;
   }
 
   _createClass(SpeedDB, [{
@@ -208,6 +210,11 @@ function () {
     key: "remove",
     value: function remove() {
       this.speedDb.removeItem('speed');
+    }
+  }, {
+    key: "setIsInserted",
+    value: function setIsInserted(value) {
+      this.isInserted = value;
     }
   }]);
 
@@ -266,7 +273,6 @@ var timeLeft = function timeLeft(htmlFields, currentTimer, netLetterSubject) {
         htmlFields.btnStart.className = "btn btn-danger";
         staticFields.setNewContent(htmlFields.wordsField.textContent, wpm, htmlFields.typingErrorsField.textContent, htmlFields.letterTyping.textContent, htmlFields.accuracyField.textContent);
         speedDb.insertData(wpm);
-        console.log(speedDb.getAllData());
       }
     }
   }, 1000);
@@ -34458,7 +34464,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "63452" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "60456" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);

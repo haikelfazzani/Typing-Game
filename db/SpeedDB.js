@@ -1,12 +1,15 @@
 export class SpeedDB {
-
+    
     constructor() {
+
         this.speedDb = localStorage;
         if(localStorage.getItem("speed") !== null) {
             this.speeds = JSON.parse(localStorage.getItem("speed"));
         }else {
             this.speeds = [];
         }
+
+        this.isInserted = false;
     }
 
     insertData(speed) {
@@ -22,6 +25,10 @@ export class SpeedDB {
 
     remove() {
         this.speedDb.removeItem('speed');
+    }
+
+    setIsInserted(value) {
+        this.isInserted = value;
     }
 
 }

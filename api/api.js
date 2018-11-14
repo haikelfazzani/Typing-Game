@@ -57,7 +57,6 @@ let timeLeft = (htmlFields , currentTimer , netLetterSubject) =>
                 );
                 
                 speedDb.insertData(wpm);
-                console.log(speedDb.getAllData())
             }
         }
     } , 1000);
