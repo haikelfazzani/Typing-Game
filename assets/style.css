@@ -119,7 +119,9 @@ button , a { outline: none; }
     }
 /*_________________ Footer */
 
-
+.fixed-bottom {
+    padding: 0;
+}
 
 
 
